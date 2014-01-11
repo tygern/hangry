@@ -21,15 +21,16 @@
 <div class="jumbotron">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 col-sm-5 search-box">
-                <h1>Hangry</h1>
-                <input type="text" placeholder="Search" ng-model="query">
-                <button class="btn btn-warning" ng-click="clearSearch()">Clear</button>
-                <button class="btn btn-danger" ng-click="clearTags()">Start Over</button>
+            <div class="col-md-5 col-sm-5 col-xs-12 search-box">
+                <div class="input-wrapper">
+                    <input type="text" placeholder="I'm hangry for..." ng-model="query">
+                    <span class="glyphicon glyphicon-remove-circle" ng-click="clearSearch()"></span>
+                </div>
+                <button class="btn btn-warning" ng-click="clearTags()">Start Over</button>
             </div>
-            <div class="col-md-7 col-sm-7">
+            <div class="col-md-7 col-sm-7 col-xs-12">
                 <span ng-repeat="choice in choices | orderBy:'score':true">
-                    <span class="item label label-success" ng-style="{opacity: choice.opacity}">
+                    <span class="item label label-success" ng-style="choice.style">
                         {{choice.name}}
                     </span>
                 </span>
@@ -43,7 +44,7 @@
     <div class="col-md-12">
         <span ng-repeat="tag in tags | filter:{selected:true}">
             <span class="item action label label-primary" ng-click="toggle(tag)">
-                <span class="glyphicon glyphicon-remove"></span>
+                <span class="glyphicon glyphicon-ok"></span>
                 {{tag.name}}
             </span>
         </span>

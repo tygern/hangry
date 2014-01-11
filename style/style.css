@@ -3,11 +3,22 @@ body {
 }
 
 input {
-    margin-top: 1em;
-    margin-bottom: 1em;
     border: none;
+    background: none;
     padding-left: 15px;
-    width: 100%;
+    margin-top: .2em;
+    width: 85%;
+}
+
+.input-wrapper .glyphicon {
+    width: 10%;
+    color: #AAAAAA;
+}
+
+.input-wrapper {
+    height: 2.5em;
+    background: white;
+    margin-bottom: 1em;
 }
 
 input:focus {
@@ -19,7 +30,6 @@ h1 {
 }
 
 .jumbotron {
-    height: 320px;
     overflow-y: hidden;
 }
 

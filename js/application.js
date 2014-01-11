@@ -23,12 +23,13 @@ Hangry = {
         });
     },
 
-    setOpacities: function (choices, count) {
+    setStyles: function (choices, count) {
         $.each(choices, function (i, choice) {
             if (choice.score == 0) {
-                choice.opacity = 0;
+                choice.style = {display: "none"};
             } else {
-                choice.opacity = Math.pow(choice.score / count, 2);
+                var opacity = Math.pow(choice.score / count, 2);
+                choice.style = {opacity: opacity};
             }
         });
     },
@@ -46,7 +47,7 @@ Hangry = {
     _bootstrapChoices: function bootstrapChoices(choices) {
         return $.map(choices, function (choice) {
             choice["score"] = 0;
-            choice["opacity"] = 0;
+            choice["style"] = {display: "none"};
             return choice;
         });
     },
