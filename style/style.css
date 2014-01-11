@@ -2,15 +2,34 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+input {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h1 {
+    margin-bottom: .5em;
+}
+
+.jumbotron {
+    text-align: center;
+    height: 320px;
+}
+
 .item{
     display: inline-block;
     margin: 1em;
-    font-size: 1em;
     padding: .6em .8em .6em;
+    font-size: 14px;
+    vertical-align: top;
 }
 
 .action {
     cursor: pointer;
+}
+
+.glyphicon {
+    margin-right: .3em;
 }
 
 .data {
