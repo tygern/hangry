@@ -1,0 +1,11 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.tag, .restaurant{
+    margin-top: 1.4em;
+}
+
+.data {
+    display: none;
+}
