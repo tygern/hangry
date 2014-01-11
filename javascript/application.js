@@ -18,7 +18,7 @@ hangryApp.controller('PickerController', function ($scope, $http) {
     };
 
     $scope.$watch('count', function () {
-        Hangry.updateScores($scope.tags, $scope.choices);
+        Hangry.updateScores($scope.tags, $scope.choices, $scope.count);
     });
 
 });
@@ -35,7 +35,7 @@ Hangry = {
 
     },
 
-    updateScores: function (tags, choices) {
+    updateScores: function (tags, choices, count) {
         $.each(choices, function (i,choice) {
             choice.score = 0;
             $.each(tags, function (i, tag) {
@@ -43,6 +43,12 @@ Hangry = {
                     choice.score += 1;
                 }
             });
+
+            if (choice.score == 0) {
+                choice.opacity = 0;
+            } else {
+                choice.opacity = choice.score / count;
+            }
         });
     },
 
@@ -57,6 +63,7 @@ Hangry = {
     _bootstrapChoices: function bootstrapChoices (choices) {
         return $.map(choices, function (choice) {
             choice["score"] = 0;
+            choice["opacity"] = 0;
             return choice;
         });
     },

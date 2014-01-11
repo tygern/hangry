@@ -50,7 +50,9 @@
 
             <div ng-repeat="choice in choices | orderBy:'score':true">
                 <div class="item">
-                    <div class="btn btn-primary">{{choice.name}} {{choice.score}}</div>
+                    <div class="btn btn-primary" ng-style="{opacity: choice.opacity}">
+                        {{choice.name}}
+                    </div>
                 </div>
             </div>
         </div>
