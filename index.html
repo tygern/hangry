@@ -37,7 +37,8 @@
             <div class="col-md-4">
                 <h1>Hangry</h1>
                 <input type="text" class="form-control" placeholder="Search" ng-model="query">
-                <button class="btn btn-danger" ng-click="clearTags()">Clear</button>
+                <button class="btn btn-warning" ng-click="clearSearch()">Clear</button>
+                <button class="btn btn-danger" ng-click="clearTags()">Start Over</button>
             </div>
             <div class="col-md-8">
                 <span ng-repeat="tag in tags | filter:{selected:true}">

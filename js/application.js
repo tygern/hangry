@@ -24,6 +24,10 @@ hangryApp.controller('PickerController', function ($scope, $http) {
         $scope.count = 0;
     };
 
+    $scope.clearSearch = function clearSearch() {
+        $scope.query = null;
+    };
+
     $scope.$watch('count', function () {
         Hangry.updateScores($scope.tags, $scope.choices, $scope.count);
         Hangry.setOpacities($scope.choices, $scope.count);
