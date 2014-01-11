@@ -1,21 +1,18 @@
-$(document).ready(function () {
-    var data = $('.data');
+var hangryApp = angular.module('hangryApp', []);
 
-    data.on('loaded', function () {
-        alert('loaded');
-    });
+hangryApp.controller('PickerController', function ($scope, $http) {
+    $scope.restaurants = [];
+    $scope.tags = [];
 
-    readTextFile = function readTextFile(file) {
-        var rawFile = new XMLHttpRequest();
-        rawFile.open("GET", file, true);
-        rawFile.onreadystatechange = function () {
-            if (rawFile.readyState === 4 && (rawFile.status === 200 || rawFile.status == 0)) {
-                data.text(rawFile.responseText);
-                data.trigger('loaded');
-            }
-        }
-        rawFile.send(null);
-    };
+    $http.get('data/restaurants.json')
+        .then(function (response) {
+            $scope.restaurants = response.data;
+            $.each($scope.restaurants, function (i, restaurant) {
+                $.unique($.merge($scope.tags, restaurant.tags));
+            });
+        });
 
-    readTextFile('data/restaurants.json');
+    
+
+
 });

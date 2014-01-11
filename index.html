@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="hangry">
+<html ng-app="hangryApp">
 <head>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
     <script src="javascript/application.js"></script>
 </head>
 
-<body>
+<body ng-controller="PickerController">
 
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
     <div class="navbar-header">
@@ -31,69 +31,28 @@
 
 
 <div class="container">
-
     <div class="row">
-        <div class="col-md-6">
 
+        <div class="col-md-6">
             <h2>Categroies</h2>
 
-            <div class="tag">
-                <div class="btn btn-default">Tag</div>
-            </div>
-
-            <div class="tag">
-                <div class="btn btn-primary">Tag</div>
-            </div>
-
-            <div class="tag">
-                <div class="btn btn-success">Tag</div>
-            </div>
-
-            <div class="tag">
-                <div class="btn btn-info">Tag</div>
-            </div>
-
-            <div class="tag">
-                <div class="btn btn-warning">Tag</div>
-            </div>
-
-            <div class="tag">
-                <div class="btn btn-danger">Tag</div>
+            <div ng-repeat="tag in tags">
+                <div class="item">
+                    <div class="btn btn-primary">{{tag}}</div>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6">
-
             <h2>Restaurants</h2>
 
-            <div class="restaurant">
-                <div class="btn btn-default">Restaurant</div>
+            <div ng-repeat="restaurant in restaurants">
+                <div class="item">
+                    <div class="btn btn-info">{{restaurant.name}}</div>
+                </div>
             </div>
-
-            <div class="restaurant">
-                <div class="btn btn-primary">Restaurant</div>
-            </div>
-
-            <div class="restaurant">
-                <div class="btn btn-success">Restaurant</div>
-            </div>
-
-            <div class="restaurant">
-                <div class="btn btn-info">Restaurant</div>
-            </div>
-
-            <div class="restaurant">
-                <div class="btn btn-warning">Restaurant</div>
-            </div>
-
-            <div class="restaurant">
-                <div class="btn btn-danger">Restaurant</div>
-            </div>
-
-
-
-
         </div>
+
     </div>
 
     <div class="data"></div>
