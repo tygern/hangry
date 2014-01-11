@@ -37,7 +37,7 @@ Hangry = {
     },
 
     updateScores: function (tags, choices, count) {
-        $.each(choices, function (i,choice) {
+        $.each(choices, function (i, choice) {
             choice.score = 0;
             $.each(tags, function (i, tag) {
                 if (tag.selected && ($.inArray(tag.name, choice.tags) != -1)) {
@@ -48,7 +48,7 @@ Hangry = {
     },
 
     setOpacities: function (choices, count) {
-        $.each(choices, function (i,choice) {
+        $.each(choices, function (i, choice) {
             if (choice.score == 0) {
                 choice.opacity = 0;
             } else {
@@ -62,10 +62,12 @@ Hangry = {
         $.each(choices, function (i, choice) {
             $.merge(tags, choice.tags);
         });
-        return $.unique(tags);
+        return tags.filter(function (tag, index, array) {
+            return index == array.indexOf(tag);
+        });
     },
 
-    _bootstrapChoices: function bootstrapChoices (choices) {
+    _bootstrapChoices: function bootstrapChoices(choices) {
         return $.map(choices, function (choice) {
             choice["score"] = 0;
             choice["opacity"] = 0;
@@ -77,6 +79,7 @@ Hangry = {
         return $.map(tags, function (tag) {
             return { "name": tag, "selected": false}
         });
-    },
+        debugger
+    }
 
 };

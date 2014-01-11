@@ -3,7 +3,14 @@ body {
 }
 
 .item{
-    margin-top: 1.4em;
+    display: inline-block;
+    margin: 1em;
+    font-size: 1em;
+    padding: .6em .8em .6em;
+}
+
+.action {
+    cursor: pointer;
 }
 
 .data {
