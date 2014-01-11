@@ -38,7 +38,9 @@
 
             <div ng-repeat="tag in tags">
                 <div class="item">
-                    <div class="btn btn-primary">{{tag}}</div>
+                    <div class="btn {{(tag.selected) ? 'btn-primary' : 'btn-default'}}" ng-click="toggle(tag)">
+                        {{tag.name}}
+                    </div>
                 </div>
             </div>
         </div>
