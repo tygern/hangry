@@ -5,6 +5,13 @@ body {
 input {
     margin-top: 1em;
     margin-bottom: 1em;
+    border: none;
+    padding-left: 15px;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
 }
 
 h1 {
@@ -12,8 +19,12 @@ h1 {
 }
 
 .jumbotron {
-    text-align: center;
     height: 320px;
+    overflow-y: hidden;
+}
+
+.search-box {
+    text-align: center;
 }
 
 .item{
