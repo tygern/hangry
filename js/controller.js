@@ -18,7 +18,7 @@ hangryApp.controller('PickerController', function ($scope, $http) {
     $scope.addTag = function addTag() {
         var matches = [];
         $.each($scope.tags, function(i, tag) {
-           if (tag.name.match($scope.query) && !tag.selected) {
+           if (tag.name.match(new RegExp($scope.query, "ig")) && !tag.selected) {
                matches.push(tag)
            }
         });
