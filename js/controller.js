@@ -16,11 +16,15 @@ hangryApp.controller('PickerController', function ($scope, $http) {
     };
 
     $scope.addTag = function addTag() {
+        var matches = [];
         $.each($scope.tags, function(i, tag) {
-           if (tag.name == $scope.query && !tag.selected) {
-               $scope.toggle(tag);
+           if (tag.name.match($scope.query) && !tag.selected) {
+               matches.push(tag)
            }
         });
+        if (matches.length == 1) {
+           $scope.toggle(matches[0]);
+        }
        $scope.clearSearch();
     };
 

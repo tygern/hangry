@@ -49,7 +49,7 @@
                 {{tag.name}}
             </span>
         </span>
-        <span ng-repeat="tag in tags | filter:{selected:false} |filter:query">
+        <span ng-repeat="tag in tags | filter:{selected:false} |filter:query" ng-model="theTag">
             <span class="item action label label-info" ng-click="toggle(tag)">
                 <span class="glyphicon glyphicon-plus" ng-click="toggle(tag)"></span>
                 {{tag.name}}
