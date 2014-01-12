@@ -5,7 +5,7 @@ Hangry.TagCollection = function TagCollection(choices) {
     var that = this
 
     $.each(choices, function (i, choice) {
-        $.merge(tagNames, choice.tags);
+        $.merge(tagNames, choice.tagNames);
     });
 
     tagNames = tagNames.filter(function (tag, index, array) {

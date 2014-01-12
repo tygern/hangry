@@ -27,31 +27,19 @@ Hangry = {
 
     updateScores: function (tags, choices) {
         $.each(choices, function (i, choice) {
-            choice.score = 0;
-            $.each(tags, function (i, tag) {
-                if (tag.selected && ($.inArray(tag.name, choice.tags) != -1)) {
-                    choice.score += 1;
-                }
-            });
+            choice.setScoreFor(tags);
         });
     },
 
     setStyles: function (choices, count) {
         $.each(choices, function (i, choice) {
-            if (choice.score == 0) {
-                choice.style = {display: "none"};
-            } else {
-                var opacity = Math.pow(choice.score / count, 2);
-                choice.style = { opacity: opacity };
-            }
+            choice.setStyle(count);
         });
     },
 
     _bootstrapChoices: function bootstrapChoices(choices) {
         return $.map(choices, function (choice) {
-            choice["score"] = 0;
-            choice["style"] = {display: "none"};
-            return choice;
+            return new Hangry.Choice(choice.name, choice.tags);
         });
     }
 };
