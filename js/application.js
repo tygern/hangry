@@ -28,8 +28,8 @@ Hangry = {
     uniqueMatch: function uniqueMatch(query, tags) {
         var matches = [];
         $.each(tags, function(i, tag) {
-            if (tag.name.match(new RegExp(query, "ig")) && !tag.selected) {
-                matches.push(tag)
+            if (tag.isMatch(query)) {
+                matches.push(tag);
             }
         });
         if (matches.length == 1) {
@@ -54,7 +54,7 @@ Hangry = {
                 choice.style = {display: "none"};
             } else {
                 var opacity = Math.pow(choice.score / count, 2);
-                choice.style = {opacity: opacity};
+                choice.style = { opacity: opacity };
             }
         });
     },
@@ -78,8 +78,8 @@ Hangry = {
     },
 
     _bootstrapTags: function bootstrapTags(tags) {
-        return $.map(tags, function (tag) {
-            return { "name": tag, "selected": false}
+        return $.map(tags, function (tagName) {
+            return new Hangry.Tag(tagName);
         });
     }
 };

@@ -23,6 +23,17 @@ hangryApp.controller('PickerController', function ($scope, $http) {
         $scope.clearSearch();
     };
 
+    $scope.$watch('query', function () {
+        var matchedTag = Hangry.uniqueMatch($scope.query, $scope.tags);
+        if (matchedTag) {
+            matchedTag.match = true;
+        } else {
+            $.each($scope.tags, function (i, tag) {
+                tag.match = false;
+            });
+        }
+    });
+
     $scope.clearTags = function clearTags() {
         $.each($scope.tags, function (i, tag) {
             tag.selected = false;

@@ -81,6 +81,11 @@ h1 {
     background-color: #8067D1;
 }
 
+.label-primary.match {
+    background-color: #FE1E32;
+}
+
 .label-info {
     background-color: #00ACF1;
+    opacity: .8;
 }

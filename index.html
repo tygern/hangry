@@ -13,6 +13,7 @@
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/vendor/angular.min.js"></script>
     <script src="js/application.js"></script>
+    <script src="js/tag.js"></script>
     <script src="js/controller.js"></script>
 </head>
 
@@ -44,14 +45,14 @@
 <div class="tags container">
     <div class="col-md-12">
         <span ng-repeat="tag in tags | filter:{selected:true}">
-            <span class="item action label label-primary" ng-click="toggle(tag)">
-                <span class="glyphicon glyphicon-ok"></span>
+            <span class="item action label label-primary {{tag.match ? 'match' : ''}}" ng-click="toggle(tag)">
+                <span class="glyphicon {{tag.match ? 'glyphicon-remove' : 'glyphicon-ok'}}"></span>
                 {{tag.name}}
             </span>
         </span>
         <span ng-repeat="tag in tags | filter:{selected:false} |filter:query" ng-model="theTag">
             <span class="item action label label-info" ng-click="toggle(tag)">
-                <span class="glyphicon glyphicon-plus" ng-click="toggle(tag)"></span>
+                <span class="glyphicon glyphicon-plus"></span>
                 {{tag.name}}
             </span>
         </span>
