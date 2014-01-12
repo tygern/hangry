@@ -25,6 +25,18 @@ Hangry = {
 
     },
 
+    uniqueMatch: function uniqueMatch(query, tags) {
+        var matches = [];
+        $.each(tags, function(i, tag) {
+            if (tag.name.match(new RegExp(query, "ig")) && !tag.selected) {
+                matches.push(tag)
+            }
+        });
+        if (matches.length == 1) {
+            return matches[0]
+        }
+    },
+
     updateScores: function (tags, choices) {
         $.each(choices, function (i, choice) {
             choice.score = 0;

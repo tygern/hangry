@@ -16,16 +16,11 @@ hangryApp.controller('PickerController', function ($scope, $http) {
     };
 
     $scope.addTag = function addTag() {
-        var matches = [];
-        $.each($scope.tags, function(i, tag) {
-           if (tag.name.match(new RegExp($scope.query, "ig")) && !tag.selected) {
-               matches.push(tag)
-           }
-        });
-        if (matches.length == 1) {
-           $scope.toggle(matches[0]);
+        var match = Hangry.uniqueMatch($scope.query, $scope.tags);
+        if (match) {
+            $scope.toggle(match);
         }
-       $scope.clearSearch();
+        $scope.clearSearch();
     };
 
     $scope.clearTags = function clearTags() {
