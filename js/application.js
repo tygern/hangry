@@ -25,18 +25,6 @@ Hangry = {
 
     },
 
-    uniqueMatch: function uniqueMatch(query, tags) {
-        var matches = [];
-        $.each(tags, function(i, tag) {
-            if (tag.isMatch(query)) {
-                matches.push(tag);
-            }
-        });
-        if (matches.length == 1) {
-            return matches[0]
-        }
-    },
-
     updateScores: function (tags, choices) {
         $.each(choices, function (i, choice) {
             choice.score = 0;
@@ -59,27 +47,11 @@ Hangry = {
         });
     },
 
-    _getTagNames: function getTagNames(choices) {
-        var tags = [];
-        $.each(choices, function (i, choice) {
-            $.merge(tags, choice.tags);
-        });
-        return tags.filter(function (tag, index, array) {
-            return index == array.indexOf(tag);
-        });
-    },
-
     _bootstrapChoices: function bootstrapChoices(choices) {
         return $.map(choices, function (choice) {
             choice["score"] = 0;
             choice["style"] = {display: "none"};
             return choice;
-        });
-    },
-
-    _bootstrapTags: function bootstrapTags(tags) {
-        return $.map(tags, function (tagName) {
-            return new Hangry.Tag(tagName);
         });
     }
 };
