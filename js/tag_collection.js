@@ -54,6 +54,10 @@ Hangry.TagCollection = function TagCollection(choices) {
         });
     };
 
-
-
+    this.clearSelected = function clearSelected() {
+        $.each(this.tags, function (i, tag) {
+            tag.selected = false;
+        });
+        this.count = 0;
+    }
 };

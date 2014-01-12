@@ -29,7 +29,7 @@
                     <span class="glyphicon glyphicon-remove-circle" ng-click="clearSearch()"
                             ng-style="{visibility: query ? 'visible' : 'hidden'}"></span>
                 </div>
-                <button class="btn btn-warning" ng-click="clearTags()">Start Over</button>
+                <button class="btn btn-warning" ng-click="tagCollection.clearSelected()">Start Over</button>
             </div>
             <div class="col-md-7 col-sm-6 col-xs-12">
                 <span ng-repeat="choice in choices | orderBy:'score':true | limitTo:6">

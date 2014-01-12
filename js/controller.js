@@ -13,13 +13,6 @@ hangryApp.controller('PickerController', function ($scope, $http) {
         $scope.tagCollection.findUniqueMatch($scope.query);
     });
 
-    $scope.clearTags = function clearTags() {
-        $.each($scope.tagCollection.tags, function (i, tag) {
-            tag.selected = false;
-        });
-        $scope.tagCollection.count = 0;
-    };
-
     $scope.clearSearch = function clearSearch() {
         $scope.query = null;
     };
