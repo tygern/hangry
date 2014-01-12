@@ -13,9 +13,11 @@ input {
 .input-wrapper .glyphicon {
     width: 10%;
     color: #AAAAAA;
+    text-align: right;
 }
 
 .input-wrapper {
+    width: 100%;
     height: 2.5em;
     background: white;
     margin-bottom: 1em;
