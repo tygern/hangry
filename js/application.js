@@ -1,5 +1,18 @@
 var hangryApp = angular.module('hangryApp', []);
 
+hangryApp.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+                event.preventDefault();
+            }
+        });
+    };
+});
+
 Hangry = {
     loadData: function loadData(target, fetcher, file) {
         var that = this;
@@ -12,7 +25,7 @@ Hangry = {
 
     },
 
-    updateScores: function (tags, choices, count) {
+    updateScores: function (tags, choices) {
         $.each(choices, function (i, choice) {
             choice.score = 0;
             $.each(tags, function (i, tag) {
