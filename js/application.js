@@ -20,7 +20,7 @@ Hangry = {
         fetcher.get(file)
             .then(function (response) {
                 target.choices = that._bootstrapChoices(response.data);
-                target.tags = that._bootstrapTags(that._getTagNames(target.choices));
+                target.tagCollection = new Hangry.TagCollection(target.choices);
             });
 
     },
