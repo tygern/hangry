@@ -48,7 +48,7 @@
 <div class="tags container">
     <div class="col-md-12">
         <span ng-repeat="tag in tagCollection.tags | filter:{selected:true}">
-            <span class="item action label label-primary {{tag.match ? 'match' : ''}}" ng-click="toggle(tag)">
+            <span class="item action label label-primary {{tag.match ? 'match' : ''}}" ng-click="tagCollection.toggle(tag)">
                 <span class="glyphicon {{tag.match ? 'glyphicon-remove' : 'glyphicon-ok'}}"></span>
                 {{tag.name}}
             </span>
