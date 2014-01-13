@@ -13,12 +13,4 @@ hangryApp.directive('ngEnter', function () {
     };
 });
 
-Hangry = {
-    loadData: function loadData(target, fetcher, file) {
-        fetcher.get(file)
-            .then(function (response) {
-                target.choiceCollection = new Hangry.ChoiceCollection(response.data);
-                target.tagCollection = new Hangry.TagCollection(target.choiceCollection.choices);
-            });
-    }
-};
+Hangry = {};
