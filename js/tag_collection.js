@@ -2,7 +2,7 @@ Hangry.TagCollection = function TagCollection(choices) {
     var tagNames = [];
     this.count = 0;
 
-    var that = this
+    var that = this;
 
     $.each(choices, function (i, choice) {
         $.merge(tagNames, choice.tagNames);
@@ -32,18 +32,13 @@ Hangry.TagCollection = function TagCollection(choices) {
 
     this.toggleMatches = function toggleMatches() {
         $.each(this.tags, function (i, tag) {
-            if (tag.match) {
-                that.toggle(tag);
-            }
+            if (tag.match) { that.toggle(tag); }
         });
     };
 
     this.toggle = function toggle(tag) {
-        if (tag.selected) {
-            this.count -= 1;
-        } else {
-            this.count += 1;
-        }
+        if (tag.selected) { this.count -= 1; }
+        else { this.count += 1; }
 
         tag.selected = !tag.selected;
     };
