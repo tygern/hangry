@@ -26,7 +26,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-6 col-xs-12 center">
-                <div class="input-wrapper">
+                <div class="input-wrapper {{(query_state == 'selected') ? 'red' : ''}} {{(query_state == 'not selected') ? 'green' : ''}}">
                     <input autofocus type="text" placeholder="I'm hangry for..." ng-model="query" ng-enter="addTag()">
                     <span class="glyphicon glyphicon-remove-circle" ng-click="clearSearch()"
                             ng-style="{visibility: query ? 'visible' : 'hidden'}"></span>

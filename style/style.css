@@ -32,6 +32,14 @@ input {
     border-radius: 7px;
 }
 
+.input-wrapper.green {
+    border-color: #00D4A4;
+}
+
+.input-wrapper.red {
+    border-color: #FE1E32;
+}
+
 input:focus {
     outline: none;
 }

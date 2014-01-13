@@ -24,9 +24,16 @@ Hangry.TagCollection = function TagCollection(choices) {
             }
         });
         if (matches.length == 1) {
-            matches[0].match = true;
+            matchingTag = matches[0];
+            matchingTag.match = true;
+            if (matchingTag.selected) {
+                return 'selected';
+            } else {
+                return 'not selected';
+            }
         } else {
             this.clearMatches();
+            return 'no match';
         }
     };
 

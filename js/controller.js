@@ -1,6 +1,7 @@
 hangryApp.controller('PickerController', function ($scope, $http) {
     $scope.choiceCollection = new Hangry.ChoiceCollection([]);
     $scope.tagCollection = new Hangry.TagCollection([]);
+    $scope.query_state = 'no match';
 
     var deferred = $http.get('data/restaurants.json');
 
@@ -16,7 +17,7 @@ hangryApp.controller('PickerController', function ($scope, $http) {
     };
 
     $scope.$watch('query', function () {
-        $scope.tagCollection.findUniqueMatch($scope.query);
+        $scope.query_state = $scope.tagCollection.findUniqueMatch($scope.query)
     });
 
     $scope.clearSearch = function clearSearch() {
