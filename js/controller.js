@@ -1,5 +1,5 @@
 hangryApp.controller('PickerController', function ($scope, $http) {
-    $scope.choices = [];
+    $scope.choiceCollection = new Hangry.ChoiceCollection([]);
     $scope.tagCollection = new Hangry.TagCollection([]);
 
     Hangry.loadData($scope, $http, 'data/restaurants.json');
@@ -18,7 +18,7 @@ hangryApp.controller('PickerController', function ($scope, $http) {
     };
 
     $scope.$watch('tagCollection.count', function () {
-        Hangry.updateScores($scope.tagCollection.tags, $scope.choices);
-        Hangry.setStyles($scope.choices, $scope.tagCollection.count);
+        $scope.choiceCollection.updateScores($scope.tagCollection.tags);
+        $scope.choiceCollection.setStyles($scope.tagCollection.count);
     });
 });

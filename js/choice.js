@@ -1,4 +1,4 @@
-Hangry.Choice = function choice(name, tagNames) {
+Hangry.Choice = function Choice(name, tagNames) {
     var hidden = {display: "none"};
     var that = this;
 
