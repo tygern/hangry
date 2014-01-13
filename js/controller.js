@@ -10,8 +10,9 @@ hangryApp.controller('PickerController', function ($scope, $http) {
     });
 
     $scope.addTag = function addTag() {
-        $scope.tagCollection.toggleMatches();
-        $scope.clearSearch();
+        if ($scope.tagCollection.toggleMatches()) {
+            $scope.clearSearch();
+        }
     };
 
     $scope.$watch('query', function () {

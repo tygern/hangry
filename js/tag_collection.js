@@ -31,9 +31,14 @@ Hangry.TagCollection = function TagCollection(choices) {
     };
 
     this.toggleMatches = function toggleMatches() {
+        var count = 0
         $.each(this.tags, function (i, tag) {
-            if (tag.match) { that.toggle(tag); }
+            if (tag.match) {
+                that.toggle(tag);
+                count += 1;
+            }
         });
+        return count;
     };
 
     this.toggle = function toggle(tag) {
